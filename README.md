@@ -6,11 +6,12 @@ gOpSlider
 
 
 **Use**
-*    $('#target').gOpSlider(options);
+* $('#target').gOpSlider(options);
 
 
 **options**
-* animate: true,       //是否执行滚动动画
+* isAuto: true,         //是否自动滚动
+* isAnimate: false,    //是否执行滚动动画
 * currClass: 'navOn',  //当前数字按钮样式
 * eventNav: 'click',   //数字按钮事件
 * navId: '#mar3Nav',   //数字按钮存放容器
