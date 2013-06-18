@@ -1,20 +1,14 @@
-gOpSlider
+公共slider组件
 ========
 
-> 这是一块基于jquery的透明度切换slider插件
+> 包含2个组件，单个带数字按钮和多个滚动。拆分的目的是减少耦合度
 
 
+**DOC List**
+* [单个带数字按钮](https://github.com/gmf2e/JsSlider/blob/master/gOpSlider.md)
+* [多个滚动](https://github.com/gmf2e/JsSlider/blob/master/gSlider.md)
 
-**Use**
-* $('#target').gOpSlider(options);
 
-
-**options**
-* isAuto: true,         //是否自动滚动
-* isAnimate: false,    //是否执行滚动动画
-* currClass: 'navOn',  //当前数字按钮样式
-* eventNav: 'click',   //数字按钮事件
-* navId: '#mar3Nav',   //数字按钮存放容器
-* time: 3000,          //切换速度
-* beforeCallback: function(){}, //执行前回调
-* afterBack: function(){}       //执行后回调
+**JS List**
+* [单个带数字按钮](https://github.com/gmf2e/JsSlider/blob/master/opSlider.js)
+* [多个滚动](https://github.com/gmf2e/JsSlider/blob/master/gSlider.js)
