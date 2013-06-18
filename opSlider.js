@@ -36,7 +36,7 @@
         styleChange: function(){
             var self = this;
             self.target.css({'position': 'relative'});
-            if(self.settings.animate){
+            if(self.settings.isAnimate){
                 self.ulNode.css({
                     'position': 'absolute',
                     'width': 20000
@@ -49,8 +49,9 @@
         imgLoad: function(){
             var self = this,
                 el = self.cel.eq(self.index).find('img');
-            if(!self.settings.isImgload || el.attr('data-name') === "imglazyload_offset"){return;}
-            el.attr('src',el.attr('data-original')).attr('data-name','imglazyload_offset');
+            if(!self.settings.isImgload || el.attr('data-name') === "imglazyload_offset" 
+                || !el.attr(self.settings.dataOriginal)){return;}
+            el.attr('src',el.attr(self.settings.dataOriginal)).attr('data-name','imglazyload_offset');
         },
         bindEvnet: function(){
             var self = this;
@@ -73,6 +74,7 @@
         },
         moving: function(){
             var self = this;
+            if(!self.settings.isAuto){return;};
             self.timer = setInterval(function(){
                 self.index++;
                 self.change(self.index);
@@ -81,7 +83,7 @@
         change: function(index){
             var self = this;
             self.index = self.index >= self.len ? 0 : self.index;
-            if(self.settings.animate){
+            if(self.settings.isAnimate){
                 if(index===self.len){
                     self.ulNode.css('padding-left',self.w).attr('flg',1);
                     self.cel.eq(0).css({
@@ -123,7 +125,9 @@
         new Slider($(this), opts);
     };
     $.fn.gOpSlider.defaults = {
-        animate: true,
+		isAuto: true,
+        isAnimate: false,
+        dataOriginal: 'data-original',
         currClass: 'navOn',
         eventNav: 'click',
         navId: '#mar3Nav',
